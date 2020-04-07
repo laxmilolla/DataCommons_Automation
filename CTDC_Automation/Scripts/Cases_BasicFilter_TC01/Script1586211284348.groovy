@@ -29,29 +29,27 @@ import java.util.*
 import java.lang.String as String
 import groovy.transform.Field as Field
 
-
 System.setProperty('webdriver.chrome.driver', 'C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\chromedriver.exe')
+
 WebDriver driver = new ChromeDriver()
+
 driver.get('https://trialcommons-qa.cancer.gov/')
+
 driver.manage().window().maximize()
 
-ArrayList<String> elemLoc = CustomKeywords.'readInputExcel.readInput'('')
-
-//
-//String[] stri = new String[elemLoc.size()];
-//for (int j = 0; j < elemLoc.size(); j++) {
-//	stri[j] = elemLoc.get(j);
-//}
-//String casesLink = ''' + elemLoc.get(4) + '''
+ArrayList<String> elemLoc = CustomKeywords.'readInputExcel.G_readInputExcel'('This is from a test case for reading input')
 
 String casesLink = elemLoc.get(15)
+
 String trialArm = elemLoc.get(25)
+
 String trialArmOption = elemLoc.get(35)
+
 String gender = elemLoc.get(45)
+
 String genderOption = elemLoc.get(55)
 
 //String clearAllButton = elemLoc.get(71)
-
 System.out.println('Before clicking on the Cases button using locator')
 
 //driver.get(casesLink)
@@ -59,20 +57,27 @@ System.out.println('Before clicking on the Cases button using locator')
 //WebElement casesLink1 = driver.findElement(By.xpath("//*[@id=\"button_navbar_cases\"]"))  // only this type works
 //WebElement leep(3000)
 WebElement casesLink1 = driver.findElement(By.id(casesLink)).click()
+
 Thread.sleep(3000)
+
 WebElement trialArm1 = driver.findElement(By.id(trialArm)).click()
+
 Thread.sleep(2000)
+
 WebElement trialArmOption1 = driver.findElement(By.id(trialArmOption)).click()
+
 Thread.sleep(2000)
+
 WebElement gender1 = driver.findElement(By.id(gender)).click()
+
 Thread.sleep(2000)
+
 WebElement genderOption1 = driver.findElement(By.id(genderOption)).click()
+
 Thread.sleep(2000)
 
 //WebElement clearAllButton1 = driver.findElement(By.id(trialArmOption)).click()  //this will work only after scrollinto view is implemented
 //Thread.sleep(2000)
-
-
 //String assertTxt = 'https://trialcommons-qa.cancer.gov/#/cases'  //use assertion after each filter to check the count of cases
 //
 //if (driver.getCurrentUrl() == assertTxt) {

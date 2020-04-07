@@ -1,4 +1,6 @@
-	import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+package ctdc.utilities
+
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
@@ -44,17 +46,14 @@ public class readInputExcel {
 
 
 	@Keyword
-	public ArrayList<String> readInput(String name) throws IOException{
+	public ArrayList<String> G_readInputExcel(String name) throws IOException{
 		System.out.println( "This is the string coming in: " + name );
 		//FileInputStream fis = new FileInputStream("C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\TestData\\Input_TestData.xlsx");  //Data Files/readWriteExcel // ("C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx")
-
 		FileInputStream fis = new FileInputStream(GlobalVariable.G_InputExcelFileName);  //Data Files/readWriteExcel // ("C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx")
-
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
 		//XSSFSheet sheet = workbook.getSheet("Sheet1");  //instead of hardcoding sheet1 make it dynamic like ldlink fmwk
-		//		int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();  //find the column count and then do 2 nested for loops to read
-		// 3 cols 2 rows    + 1 header row
+		//int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();  //find the column count and then do 2 nested for loops to read
 
 
 		ArrayList<String> xlContents = new ArrayList<String>();
@@ -65,7 +64,7 @@ public class readInputExcel {
 
 		for (int i = 0; i < numberOfSheets; i++) {
 			XSSFSheet aSheet = workbook.getSheetAt(i);
-			//System.out.println(aSheet.getSheetName());
+			System.out.println(aSheet.getSheetName());  // prints all the sheet names
 			int numOfRows = aSheet.getLastRowNum() - aSheet.getFirstRowNum();
 			System.out.println("Number of rows in Sheet: " + aSheet.getSheetName() + " = " + numOfRows );
 			Iterator<Row> rows = aSheet.iterator();
@@ -83,11 +82,8 @@ public class readInputExcel {
 		}
 		System.out.println("This is the value of the arraylist named xlContents: " + xlContents);
 		System.out.println("This is the element at index 0:"+ xlContents.get(0));
-		//		String casesLink = xlContents.get(3);
-		//		System.out.println("This is the element at index 3:"+ casesLink);
+
 		return xlContents;
-
-
 	}
 
 

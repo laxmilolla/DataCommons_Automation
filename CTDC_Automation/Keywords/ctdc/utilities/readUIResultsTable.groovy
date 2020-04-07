@@ -30,14 +30,13 @@ import com.kms.katalon.core.webui.driver.DriverFactory
 
 public class readUIResultsTable {
 	@Keyword
-	public List<String> tableData() throws IOException {
+	public List<String> G_readUIResultsTable() throws IOException {
 		List<String> webData = new ArrayList<String>();
 		System.setProperty("webdriver.chrome.driver", GlobalVariable.G_BrowserDriverPath);  //path of browser driver is in global variable under profiles
 		WebDriver driver = new ChromeDriver()
 		driver.get("https://trialcommons-qa.cancer.gov/#/cases")
-		driver.manage().window().maximize();
-		// WebDriver driver = DriverFactory.getWebDriver()
-		String ExpectedValue = "CTDC-43062";
+		driver.manage().window().maximize();		// WebDriver driver = DriverFactory.getWebDriver()
+
 		'To locate table'
 		WebElement Table = driver.findElement(By.xpath("//*[@id=\"table_cases\"]/div[2]/div[2]/div/div[2]/table"))  // //*[@id=\"table_cases\"]  changed the xpath   //'//*[@id="table_cases"]/div[2]/div[2]/div/div[2]/table'
 		List<WebElement> rows_table = Table.findElements(By.xpath("//*[contains(@id, \"MUIDataTableBodyRow-\")]"))

@@ -26,4 +26,4 @@ import org.openqa.selenium.chrome.ChromeDriver as ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions as ChromeOptions
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 
-CustomKeywords.'ctdc.utilities.readUIResultsTable.tableData'()
+CustomKeywords.'ctdc.utilities.readUIResultsTable.G_readUIResultsTable'()
