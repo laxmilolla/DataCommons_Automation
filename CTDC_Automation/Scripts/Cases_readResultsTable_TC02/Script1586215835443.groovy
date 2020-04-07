@@ -27,4 +27,3 @@ import org.openqa.selenium.chrome.ChromeOptions as ChromeOptions
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 
 CustomKeywords.'ctdc.utilities.readUIResultsTable.tableData'()
-

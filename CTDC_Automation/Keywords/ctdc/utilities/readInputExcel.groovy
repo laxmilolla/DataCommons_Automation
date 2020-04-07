@@ -46,9 +46,10 @@ public class readInputExcel {
 	@Keyword
 	public ArrayList<String> readInput(String name) throws IOException{
 		System.out.println( "This is the string coming in: " + name );
-		FileInputStream fis = new FileInputStream("C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\TestData\\Input_TestData.xlsx");  //Data Files/readWriteExcel // ("C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx")
+		//FileInputStream fis = new FileInputStream("C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\TestData\\Input_TestData.xlsx");  //Data Files/readWriteExcel // ("C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx")
 
-		//"C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx"
+		FileInputStream fis = new FileInputStream(GlobalVariable.G_InputExcelFileName);  //Data Files/readWriteExcel // ("C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx")
+
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
 		//XSSFSheet sheet = workbook.getSheet("Sheet1");  //instead of hardcoding sheet1 make it dynamic like ldlink fmwk

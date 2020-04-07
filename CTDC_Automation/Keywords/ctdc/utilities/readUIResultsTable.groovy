@@ -32,7 +32,7 @@ public class readUIResultsTable {
 	@Keyword
 	public List<String> tableData() throws IOException {
 		List<String> webData = new ArrayList<String>();
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", GlobalVariable.G_BrowserDriverPath);  //path of browser driver is in global variable under profiles
 		WebDriver driver = new ChromeDriver()
 		driver.get("https://trialcommons-qa.cancer.gov/#/cases")
 		driver.manage().window().maximize();
@@ -105,7 +105,7 @@ public class readUIResultsTable {
 		System.out.println(webData);
 		return webData;
 
-        driver.quit();
+		driver.quit();
 	}
 
 
