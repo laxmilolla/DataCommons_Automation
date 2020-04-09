@@ -82,7 +82,7 @@ public class commonFunctions {
 		}
 	}
 
-		//What does this one do ?
+	//What does this one do ?
 	def listIfEmptyOrNull ( pList, pVal ) {
 		try {
 			if ( pVal != "" && pVal != null ) {
@@ -153,28 +153,28 @@ public class commonFunctions {
 
 
 	//************************************************************************************************************/
-	
-			def differenceInLists ( pList1, pList2 ) {
-			try {
-				def commons = pList1.intersect(pList2)
-				def difference = pList1.plus(pList2)
-				def sizeDiff
-				difference.removeAll(commons)
-		
-				if ( pList1.size > pList2.size ) {
-					sizeDiff = pList1.size - pList2.size
-				} else {
-					sizeDiff = pList2.size - pList1.size
-				}
-				
-				log.info "     -- DIFFERENCE BETWEEN DB & JSON SIZES -- : " + sizeDiff
-				log.info "     -- DIFFERENCE BETWEEN DB & JSON VALUES -- : " + getSortedList ( difference )
-				assert pList1.size == pList2.size, "     -- ERROR ------------------------- : Comparison of sizes of DB list & JSON list FAILED."
-			} catch ( MalformedURLException e ) {
-				assert true
-				log.error "     -- EXCEPTION ------------------------- : in method differenceInLists ( pList1, pList2 )"
-				assert e in MalformedURLException
+
+	def differenceInLists ( pList1, pList2 ) {
+		try {
+			def commons = pList1.intersect(pList2)
+			def difference = pList1.plus(pList2)
+			def sizeDiff
+			difference.removeAll(commons)
+
+			if ( pList1.size > pList2.size ) {
+				sizeDiff = pList1.size - pList2.size
+			} else {
+				sizeDiff = pList2.size - pList1.size
 			}
+
+			log.info "     -- DIFFERENCE BETWEEN DB & JSON SIZES -- : " + sizeDiff
+			log.info "     -- DIFFERENCE BETWEEN DB & JSON VALUES -- : " + getSortedList ( difference )
+			assert pList1.size == pList2.size, "     -- ERROR ------------------------- : Comparison of sizes of DB list & JSON list FAILED."
+		} catch ( MalformedURLException e ) {
+			assert true
+			log.error "     -- EXCEPTION ------------------------- : in method differenceInLists ( pList1, pList2 )"
+			assert e in MalformedURLException
 		}
+	}
 
 }
