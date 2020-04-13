@@ -30,6 +30,7 @@ public class databaseFunctions {
 	//	 **  Create database connection and execute DB query to retrieve the results
 	//************************************************************************************************************/
 
+
 	def runDBQuery ( pQry ) {
 		try {
 			List lvRtrnVl = []
@@ -61,6 +62,7 @@ public class databaseFunctions {
 			assert e in MalformedURLException
 		}
 	}
+
 
 
 
