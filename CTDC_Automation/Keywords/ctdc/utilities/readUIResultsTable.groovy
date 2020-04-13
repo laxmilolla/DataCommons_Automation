@@ -34,6 +34,7 @@ public class readUIResultsTable {
 		List<String> webData = new ArrayList<String>();
 		System.setProperty("webdriver.chrome.driver", GlobalVariable.G_BrowserDriverPath);  //path of browser driver is in global variable under profiles
 		WebDriver driver = new ChromeDriver()
+
 		driver.get("https://trialcommons-qa.cancer.gov/#/cases")
 		driver.manage().window().maximize();		// WebDriver driver = DriverFactory.getWebDriver()
 

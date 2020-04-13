@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Trial</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>ffbf257a-1ea1-495c-9216-04eea8400cb9</testCaseGuid>
+   <variable>
+      <defaultValue>GlobalVariable.null</defaultValue>
+      <description></description>
+      <id>6d58e839-a33d-47a0-affe-7d1c01c2f72b</id>
+      <masked>false</masked>
+      <name>variable</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>6fe22ffa-6ff5-4665-a9f5-818b117b5663</id>
+      <masked>false</masked>
+      <name>variable_0</name>
+   </variable>
+</TestCaseEntity>
