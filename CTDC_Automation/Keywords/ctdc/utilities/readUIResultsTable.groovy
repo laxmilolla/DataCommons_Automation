@@ -27,19 +27,43 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import com.kms.katalon.core.webui.driver.DriverFactory
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.ArrayList;
+import java.io.FileDescriptor
+import java.io.File
+import java.lang.String
+import java.lang.Object
+
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.file.FileSystem;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths
+
+
 
 public class readUIResultsTable {
 	@Keyword
 	public List<String> G_readUIResultsTable() throws IOException {
 		List<String> webData = new ArrayList<String>();
-		System.setProperty("webdriver.chrome.driver", GlobalVariable.G_BrowserDriverPath);  //path of browser driver is in global variable under profiles
+		
+		Path driverPath = Paths.get(System.getProperty("user.dir"), "chromedriver.exe");
+		System.out.println("This is the full filepath of browser driver after converting to string :"+driverPath.toString());
+		System.setProperty('webdriver.chrome.driver', driverPath.toString())
+		//System.setProperty("webdriver.chrome.driver", GlobalVariable.G_BrowserDriverPath);  //path of browser driver is in global variable under profiles
 		WebDriver driver = new ChromeDriver()
 
 		driver.get("https://trialcommons-qa.cancer.gov/#/cases")
 		driver.manage().window().maximize();		// WebDriver driver = DriverFactory.getWebDriver()
 
 		'To locate table'
-		WebElement Table = driver.findElement(By.xpath("//*[@id=\"table_cases\"]/div[2]/div[2]/div/div[2]/table"))  // //*[@id=\"table_cases\"]  changed the xpath   //'//*[@id="table_cases"]/div[2]/div[2]/div/div[2]/table'
+		//WebElement Table = driver.findElement(By.xpath("//*[@id=\"table_cases\"]/div[2]/div[2]/div/div[2]/table"))  // //*[@id=\"table_cases\"]  changed the xpath   //'//*[@id="table_cases"]/div[2]/div[2]/div/div[2]/table'
+		WebElement Table = driver.findElement(By.id("table_cases"))
 		List<WebElement> rows_table = Table.findElements(By.xpath("//*[contains(@id, \"MUIDataTableBodyRow-\")]"))
 		int rows_count = rows_table.size()
 		System.out.println("This is the size of the rows in the table in first page:"+(rows_count))

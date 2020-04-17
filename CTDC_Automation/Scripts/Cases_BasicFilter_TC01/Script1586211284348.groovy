@@ -26,18 +26,41 @@ import org.openqa.selenium.chrome.ChromeDriver as ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions as ChromeOptions
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import java.util.*
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.ArrayList;
+import java.io.FileDescriptor
+import java.io.File
+import java.lang.String
+import java.lang.Object
+
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.file.FileSystem;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import java.lang.String as String
 import groovy.transform.Field as Field
 
-System.setProperty('webdriver.chrome.driver', 'C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\chromedriver.exe')
+ArrayList<String> elemLoc = CustomKeywords.'ctdc.utilities.readInputExcel.G_readInputExcel'('')
+
+
+Path driverPath = Paths.get(System.getProperty("user.dir"), "chromedriver.exe");
+System.out.println("This is the full filepath of browser driver after converting to string :"+driverPath.toString());
+
+System.setProperty('webdriver.chrome.driver', driverPath.toString())
+//System.setProperty('webdriver.chrome.driver', 'C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\chromedriver.exe')
 
 WebDriver driver = new ChromeDriver()
 
 driver.get('https://trialcommons-qa.cancer.gov/')
 
 driver.manage().window().maximize()
-
-ArrayList<String> elemLoc = CustomKeywords.'readInputExcel.G_readInputExcel'('This is from a test case for reading input')
 
 String casesLink = elemLoc.get(15)
 

@@ -71,9 +71,9 @@ public class ReadExcel {
 
 		// An excel file name. You can create a file name with a fullSystem.out.println("sjhdajdakjsd")
 
-		
+
 		// path information.
-		
+
 		Path filepath = Paths.get(System.getProperty("user.dir"), "TestData", "Input_TestData.xlsx");
 		System.out.println("This is the full filepath after converting to string :"+filepath.toString());
 		//String filename = ("C:\\Data\\readInput.xlsx")
@@ -183,12 +183,12 @@ public class ReadExcel {
 		//String filename = (GlobalVariable.G_InputExcelFileName)
 		Path filepath = Paths.get(System.getProperty("user.dir"), "TestData", "Input_TestData.xlsx");
 		GlobalVariable.G_InputExcelFileName=filepath.toString()
-		
+
 		String filename = (GlobalVariable.G_InputExcelFileName)
 		System.out.println("This is the full filepath after converting to string :"+filepath.toString());
-		
+
 		System.out.println("This is the full filepath from GLOBAL :"+  GlobalVariable.G_InputExcelFileName );
-		
+
 		// Create an ArrayList to store the data read from excel sheet.
 		List<List<XSSFCell>> sheetData = new ArrayList<>();
 		FileInputStream fis = new FileInputStream(filepath.toString());
