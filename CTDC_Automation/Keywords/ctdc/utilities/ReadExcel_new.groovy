@@ -45,21 +45,13 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.file.FileSystem;
-import java.nio.file.LinkOption;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import ctdc.utilities.ConnectDB
 
-public class ReadExcel {
+public class ReadExcel_1 {
 
 	@Keyword
 
@@ -71,21 +63,20 @@ public class ReadExcel {
 
 		// An excel file name. You can create a file name with a fullSystem.out.println("sjhdajdakjsd")
 
+		System.out.println("00000000")
 
 		// path information.
-
-		Path filepath = Paths.get(System.getProperty("user.dir"), "TestData", "Input_TestData.xlsx");
-		System.out.println("This is the full filepath after converting to string :"+filepath.toString());
-		//String filename = ("C:\\Data\\readInput.xlsx")
+		String filename = ("C:\\Data\\readInput.xlsx")
 		// Create an ArrayList to store the data read from excel sheet.
 		List<List<XSSFCell>> sheetData = new ArrayList<>();
 
 		//try (FileInputStream fis = new FileInputStream(filename)) {
 		// Create an excel workbook from the file system.
-		FileInputStream fis = new FileInputStream(filepath.toString());
-		//FileInputStream fis = new FileInputStream(filepath)
+		FileInputStream fis = new FileInputStream(filename)
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
+
+		System.out.println("333333333")
 		// Get the first sheet on the workbook.
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
@@ -127,50 +118,49 @@ public class ReadExcel {
 		}
 	}
 
-	@Keyword
-
-	public static void Neo4j() {
-
-
-		//String query = "MATCH (t:clinical_trial)<--(a:arm)<--(:assignment_report)-[*]->(c:case) WITH DISTINCT c AS c, t ,a  OPTIONAL MATCH (c)<-[*]-(f:file)  Return c.case_id  As case_id,t.clinical_trial_designation as clinical_trial_code,a.arm_id As arm_id, a.arm_drug As arm_drug, a.pubmed_id As pubmed_id, c.disease As disease, c.gender As gender, c.race As race, c.ethnicity As ethnicity, t.clinical_trial_id As clinical_trial_id, a.arm_id+'_'+ a.arm_drug As trial_arm, COLLECT(DISTINCT(f.file_type)) AS file_types, COLLECT(DISTINCT(f.file_format)) AS file_formats, COLLECT(DISTINCT(f)) AS files";
-		//String neo4jServer = "bolt://ncidb-q325-c.nci.nih.gov:7687";
-		//String userName="neo4j";
-		//String pwd="icdcDBneo4j0";
-		//String output="C:\\laxmi\\TEST5.xlsx";
-		//''executor.run(neo4jServer,userName,pwd, query,output);
-
-
-
-
-		System.out.println ( " the data for NE4J  :  " +  GlobalVariable.G_Query +   GlobalVariable.G_UserId +   GlobalVariable.G_Password +  GlobalVariable.G_ResultPath + GlobalVariable.G_server )
-		String query =GlobalVariable.G_Query
-		String userName= GlobalVariable.G_UserId
-		String pwd= GlobalVariable.G_Password
-		String output= GlobalVariable.G_ResultPath
-		String neo4jServer = GlobalVariable.G_server
-		//String query=
-		//"MATCH (t:clinical_trial)<--(a:arm)<--(:assignment_report)-[*]->(c:case) WITH DISTINCT c AS c, t ,a  OPTIONAL MATCH (c)<-[*]-(f:file)  Return c.case_id  As case_id,t.clinical_trial_designation as clinical_trial_code,a.arm_id As arm_id, a.arm_drug As arm_drug, a.pubmed_id As pubmed_id, c.disease As disease, c.gender As gender, c.race As race, c.ethnicity As ethnicity, t.clinical_trial_id As clinical_trial_id, a.arm_id+'_'+ a.arm_drug As trial_arm, COLLECT(DISTINCT(f.file_type)) AS file_types, COLLECT(DISTINCT(f.file_format)) AS file_formats, COLLECT(DISTINCT(f)) AS files";
-		//		String neo4jServer =   "bolt://ncidb-q325-c.nci.nih.gov"
-
-		//		// "bolt://ncias-q2251-c.nci.nih.gov/";
-		//		//String neo4jServer = GlobalVariable.G_server    //  "bolt://ncias-d2267-c.nci.nih.gov/" ;
-		//
-		//		String userName= "neo4j";
-		//		String pwd= "icdcDBneo4j0";
-		//		String output= "C:\\laxmi\\TEST5.xlsx" ;
-		//		//executor.run(neo4jServer,userName,pwd, query,output);
-		//		//----------------
-		//
-		ConnectDB Test1 = new ConnectDB()
-		//		//		Test1.run(neo4jServer,userName,pwd, query,output)
-		Test1.run(neo4jServer,userName,pwd, query,output)
-
-
-		//		Test
-		//
-	}
-
-
+	//	@Keyword
+	//
+	//	public static void Neo4j() {
+	//
+	//
+	//		String query = "MATCH (t:clinical_trial)<--(a:arm)<--(:assignment_report)-[*]->(c:case) WITH DISTINCT c AS c, t ,a  OPTIONAL MATCH (c)<-[*]-(f:file)  Return c.case_id  As case_id,t.clinical_trial_designation as clinical_trial_code,a.arm_id As arm_id, a.arm_drug As arm_drug, a.pubmed_id As pubmed_id, c.disease As disease, c.gender As gender, c.race As race, c.ethnicity As ethnicity, t.clinical_trial_id As clinical_trial_id, a.arm_id+'_'+ a.arm_drug As trial_arm, COLLECT(DISTINCT(f.file_type)) AS file_types, COLLECT(DISTINCT(f.file_format)) AS file_formats, COLLECT(DISTINCT(f)) AS files";
+	//		String neo4jServer = "bolt://ncias-q2251-c.nci.nih.gov/";
+	//		String userName="neo4j";
+	//		String pwd="icdcDBneo4j0";
+	//		String output="C:\\laxmi\\TEST5.xlsx";
+	//		''executor.run(neo4jServer,userName,pwd, query,output);
+	//
+	//		// ---------------------------------
+	//
+	//		//
+	//		//
+	//		//		//"MATCH (n:case) RETURN n LIMIT 25"
+	//		//
+	//		//		//output= 'C:\laxmi\
+	//		//
+	//		//		//String query =GlobalVariable.G_Query
+	//		//		//String userName= GlobalVariable.G_UserId
+	//		//		//String pwd= GlobalVariable.G_Password
+	//		//		//String output= GlobalVariable.G_ResultPath
+	//		//		String query= "MATCH (t:clinical_trial)<--(a:arm)<--(:assignment_report)-[*]->(c:case) WITH DISTINCT c AS c, t ,a  OPTIONAL MATCH (c)<-[*]-(f:file)  Return c.case_id  As case_id,t.clinical_trial_designation as clinical_trial_code,a.arm_id As arm_id, a.arm_drug As arm_drug, a.pubmed_id As pubmed_id, c.disease As disease, c.gender As gender, c.race As race, c.ethnicity As ethnicity, t.clinical_trial_id As clinical_trial_id, a.arm_id+'_'+ a.arm_drug As trial_arm, COLLECT(DISTINCT(f.file_type)) AS file_types, COLLECT(DISTINCT(f.file_format)) AS file_formats, COLLECT(DISTINCT(f)) AS files";
+	//		//		String neo4jServer = "bolt://ncidb-q325-c.nci.nih.gov"
+	//		//
+	//		//		// "bolt://ncias-q2251-c.nci.nih.gov/";
+	//		//		//String neo4jServer = GlobalVariable.G_server    //  "bolt://ncias-d2267-c.nci.nih.gov/" ;
+	//		//
+	//		//		String userName= "neo4j";
+	//		//		String pwd= "icdcDBneo4j0";
+	//		//		String output= "C:\\laxmi\\TEST5.xlsx" ;
+	//		//		//executor.run(neo4jServer,userName,pwd, query,output);
+	//		//		//----------------
+	//		//
+	//		ConnectDB Test1 = new ConnectDB()
+	//		//		//		Test1.run(neo4jServer,userName,pwd, query,output)
+	//		Test1.run(neo4jServer,userName,pwd, query,output)
+	//		//
+	//	}
+	//
+	//
 	@Keyword
 
 	public static  void initialLoad() {
@@ -180,18 +170,10 @@ public class ReadExcel {
 
 		//System.out.println ( "*********************************INITIAL LOAD working *****************************")
 
-		//String filename = (GlobalVariable.G_InputExcelFileName)
-		Path filepath = Paths.get(System.getProperty("user.dir"), "TestData", "Input_TestData.xlsx");
-		GlobalVariable.G_InputExcelFileName=filepath.toString()
-
 		String filename = (GlobalVariable.G_InputExcelFileName)
-		System.out.println("This is the full filepath after converting to string :"+filepath.toString());
-
-		System.out.println("This is the full filepath from GLOBAL :"+  GlobalVariable.G_InputExcelFileName );
-
 		// Create an ArrayList to store the data read from excel sheet.
 		List<List<XSSFCell>> sheetData = new ArrayList<>();
-		FileInputStream fis = new FileInputStream(filepath.toString());
+		FileInputStream fis = new FileInputStream(filename)
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		// Get the  sheets on the workbook.
 		int numberOfSheets = workbook.getNumberOfSheets();

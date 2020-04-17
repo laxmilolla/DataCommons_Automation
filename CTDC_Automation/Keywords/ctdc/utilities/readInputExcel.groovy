@@ -29,6 +29,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.io.FileDescriptor
+import java.io.File
+import java.lang.String
+import java.lang.Object
+
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.file.FileSystem;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -48,8 +59,12 @@ public class readInputExcel {
 	@Keyword
 	public ArrayList<String> G_readInputExcel(String name) throws IOException{
 		System.out.println( "This is the string coming in: " + name );
-		//FileInputStream fis = new FileInputStream("C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\TestData\\Input_TestData.xlsx");  //Data Files/readWriteExcel // ("C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx")
-		FileInputStream fis = new FileInputStream(GlobalVariable.G_InputExcelFileName);  //Data Files/readWriteExcel // ("C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx")
+		Path filepath = Paths.get(System.getProperty("user.dir"), "TestData", "Input_TestData.xlsx");
+		System.out.println("This is the full filepath after converting to string :"+filepath.toString());
+
+		FileInputStream fis = new FileInputStream(filepath.toString()); //"C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx"
+
+		//FileInputStream fis = new FileInputStream(GlobalVariable.G_InputExcelFileName);  //Data Files/readWriteExcel // ("C:\\Users\\radhakrishnang2\\Desktop\\Katalon_POC\\readInput.xlsx")
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
 		//XSSFSheet sheet = workbook.getSheet("Sheet1");  //instead of hardcoding sheet1 make it dynamic like ldlink fmwk

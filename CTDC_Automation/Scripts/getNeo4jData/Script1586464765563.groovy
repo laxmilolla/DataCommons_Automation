@@ -15,6 +15,5 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 
-CustomKeywords.'ctdc.utilities.ReadExcel_old.initialLoad'()
+CustomKeywords.'ctdc.utilities.readInputExcel.G_readInputExcel'('')
 
-//Customkeyword

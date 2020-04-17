@@ -74,8 +74,9 @@ import ctdc.utilities.ReadExcel
 
 public class RunTestcase {
 
-	@Keyword
+
 	public static WebDriver driver = new ChromeDriver()
+	@Keyword
 	public  void Run() {
 
 		String filename = (GlobalVariable.G_InputExcelFileName)
@@ -139,17 +140,21 @@ public class RunTestcase {
 
 				XSSFCell cell = datarow.get(jj);
 
-				System.out.println ("Before swith value  : " + sheetData.get(0).get(jj).getStringCellValue().trim()  )
-				System.out.println ( "VALES :" + sheetData.get(ii).get(jj).getStringCellValue())
+				System.out.println ("Before Switch value  : " + sheetData.get(0).get(jj).getStringCellValue().trim()  )
+				System.out.println ( "Value in column :" + sheetData.get(ii).get(jj).getStringCellValue())
 				switch(sheetData.get(0).get(jj).getStringCellValue().trim() )
 				{
 
 					case("propertyName"):
 						GlobalVariable.G_propertyName = sheetData.get(ii).get(jj).getStringCellValue()
+						System.out.println ( " THE Property name  BEING saved :  "  +  GlobalVariable.G_propertyName )
+
 					//Do Test here
 						break;
 					case("propertyvalue"):
 						GlobalVariable.G_propertyvalue = sheetData.get(ii).get(jj).getStringCellValue()
+						System.out.println ( " THE propertyvalue BEING saved :  "  +  GlobalVariable.G_propertyvalue )
+
 					//Do Test here
 						break;
 					case("locateby"):
@@ -165,7 +170,13 @@ public class RunTestcase {
 					//Do Test here
 						break;
 					case("Query"):
+
 						GlobalVariable.G_Query = sheetData.get(ii).get(jj).getStringCellValue()
+						System.out.println ( " THE QUERY BEING saved :  "  +  GlobalVariable.G_Query )
+
+
+
+
 					//Do Test here
 						break;
 					case("Page"):
@@ -173,104 +184,33 @@ public class RunTestcase {
 						break;
 					case("Function"):
 
-						System.out.println ( " ******************************* IN the FUnction **************************")
+
 						System.out.println ( "  the value tobe uses in the function call  : " + sheetData.get(ii).get(jj).getStringCellValue().trim() )
 						switch(sheetData.get(ii).get(jj).getStringCellValue().trim() )
 						{
 							case("InitialLoad"):
-
-								System.out.println ("  in the FUNCTION hjdhgdfghdghdfjdfgdWORK NOW dumbo ")
-							//CustomKeywords.'ctdc.utilities.ReadExcel.initialLoad'()
 								ReadExcel.initialLoad()
 								ReadExcel.PrintG()
 								break;
 							case ("Dbconnect"):
+								System.out.println  (" In dataload")
 								ReadExcel.Neo4j()
 								break;
 
 							case ("action_click"):
 
 								System.setProperty('webdriver.chrome.driver',  GlobalVariable.G_BrowserDriverPath )
-							//	'C:\\Users\\radhakrishnang2\\Desktop\\DataCommons_Automation\\CTDC_Automation\\chromedriver.exe')
-								System.out.println ("//******************IN ACTION CLICKKKKKKK********************************* ")
 
 								System.out.println ( " locator from excel  :"  + GlobalVariable.G_locatorvalue )
-							//WebDriver driver = new ChromeDriver()
 
 								driver.get(GlobalVariable.G_Page)
-
-							//driver.findElement(By.xpath("//*[@type = 'button' and (text() = 'Cases' or . = 'Cases')]")).click()
 
 								driver.findElement(By.xpath( GlobalVariable.G_locatorvalue)).click()
 
 								System.out.println( " clicked on :" + GlobalVariable.G_locatorvalue )
 
 								driver.manage().window().maximize()
-							//driver.get("https://caninecommons.cancer.gov/#/cases")
 
-							//ArrayList<String> elemLoc = CustomKeywords.'readInputExcel.G_readInputExcel'('This is from a test case for reading input')
-
-							//		String casesLink = elemLoc.get(15)
-							//
-							//String trialArm = elemLoc.get(25)
-
-							//	String trialArmOption = elemLoc.get(35)
-
-							//	String gender = elemLoc.get(45)
-
-							//	String genderOption = elemLoc.get(55)
-
-							//String clearAllButton = elemLoc.get(71)
-							//System.out.println("Before clicking on the Cases button using locator : ")
-
-							//driver.get(casesLink)
-							//String loc = '//*[@id="button_navbar_cases"]'
-							//WebElement casesLink1 = driver.findElement(By.xpath("//*[@id=\"button_navbar_cases\"]"))  // only this type works
-							//WebElement leep(3000)
-							//WebElement casesLink1 = driver.findElement(By.id(casesLink)).click()
-
-							//WebUI.click("//*[@type = 'button' and (text() = 'Cases' or . = 'Cases')]")
-							//								driver.findElement(By.xpath ("//*[@type = 'button' and (text() = 'Cases' or . = 'Cases')]")).click()
-
-							//WebElement casesLink1 = driver.findElement(By.id(casesLink)).click()
-							//Thread.sleep(3000)
-
-							//WebElement trialArm1 = driver.findElement(By.id(trialArm)).click()
-
-							//Thread.sleep(2000)
-
-							//WebElement trialArmOption1 = driver.findElement(By.id(trialArmOption)).click()
-
-							//Thread.sleep(2000)
-
-							//WebElement gender1 = driver.findElement(By.id(gender)).click()
-
-							//Thread.sleep(2000)
-
-							//WebElement genderOption1 = driver.findElement(By.id(genderOption)).click()
-
-							//Thread.sleep(2000)
-
-							//WebElement clearAllButton1 = driver.findElement(By.id(trialArmOption)).click()  //this will work only after scrollinto view is implemented
-							//Thread.sleep(2000)
-							//String assertTxt = 'https://trialcommons-qa.cancer.gov/#/cases'  //use assertion after each filter to check the count of cases
-							//
-							//if (driver.getCurrentUrl() == assertTxt) {
-							//	System.out.println('This is the url from the cases page:' + driver.getCurrentUrl())
-							//}
-							//
-							//System.out.println('After clicking on the Caess hyperlink using locator')
-							//
-							//Thread.sleep(3000)
-							//driver.quit()
-
-
-
-							//********************************************************************
-
-
-							//ReadExcel.Neo4j()
-							//WebElement casesLink1 = driver.findElement(By.id(casesLink)).click()
 								break;
 
 
@@ -278,21 +218,11 @@ public class RunTestcase {
 								System.out.println ("nothing in function column :")
 								break;
 						}
-					//CustomKeywords.'ctdc.utilities.ReadExcel.Neo4j'()
-
-					//System.out.println( "inside case Function")
-					//System.out.println(sheetData.get(i).get(j).getStringCellValue())
-					//	GlobalVariable.G_Function = sheetData.get(i).get(j).getStringCellValue()
-					//Do Test here
 						break;
 					case("Run"):
-					//System.out.println( "inside case Run")
-					//System.out.println(sheetData.get(i).get(j).getStringCellValue())
 						GlobalVariable.G_Run = sheetData.get(ii).get(jj).getStringCellValue()
-					//Do Test here
 						break;
 					case("Otherimportuser"):
-					//Do Test here
 						break;
 
 					default :
@@ -300,14 +230,6 @@ public class RunTestcase {
 						break;
 				}
 
-				//System.out.println GlobalVariable(0).value
-
-				//--------------------------
-
-
-				//str =str+ cell.getStringCellValue() + "||"
-				//}
-				//System.out.println(str);
 
 			}
 		}
@@ -315,4 +237,90 @@ public class RunTestcase {
 
 
 
+
+
+	//----------------web data --------------
+
+
+
+
+	@Keyword
+	public static ArrayList<String> CaseData() {
+		List<String> webData = new ArrayList<String>();
+		System.setProperty("webdriver.chrome.driver", GlobalVariable.G_BrowserDriverPath);  //path of browser driver is in global variable under profiles
+		WebDriver driver = new ChromeDriver()
+		driver.get("https://trialcommons-qa.cancer.gov/#/cases")
+		driver.manage().window().maximize();		// WebDriver driver = DriverFactory.getWebDriver()
+		//'To locate table'
+		//int i = 0
+		//*[@id="table_cases"]/div
+
+		WebElement Table = driver.findElement(By.xpath('//*[@id=\"table_cases\"]/div'));
+
+		List<WebElement> rows_table = Table.findElements(By.xpath("//*[contains(@id, \"MUIDataTableBodyRow-\")]"))
+		int rows_count = rows_table.size()
+		System.out.println("This is the size of the rows in the table in first page:"+(rows_count))
+		//'hardcode'
+		WebElement nextButton = driver.findElement(By.xpath("//*[@id=\"table_cases\"]/div/table/tfoot/tr/td/div/div[3]/button[2]"));
+
+		WebElement tableHdr = driver.findElement(By.xpath("//*[@id=\"table_cases\"]/div/div[2]/table/thead"))
+
+		List<WebElement> colHeader = tableHdr.findElements(By.tagName("th"));
+		int columns_count = (colHeader.size())-1
+		System.out.println("No.of cols is : "+columns_count)
+		String hdrdata = ""
+		for(int c=1;c<=columns_count;c++){
+			hdrdata = hdrdata + ((colHeader.get(c).getText()) + "||");
+		}
+		webData.add(hdrdata);
+		System.out.println("Size of web data list with header :" +webData.size())
+		for(int index = 0; index < webData.size(); index++) {
+			System.out.println("Web Data: with header data is :" + webData.get(index))
+		}
+		while(nextButton.isEnabled()){
+			// String pageNm = driver.findElement(By.xpath("//*[@id=\"table_cases\"]/div[2]/div[2]/div/table/tfoot/tr/td/div/span[2]")).getText();
+			// System.out.println ("This is the page number : " +pageNm)
+			int i = 0
+			int j = 0
+			for (i = 1; i <= rows_count; i++) {
+				String data = ""
+				for (j = 1; j < columns_count+10; j = j + 2) {
+					data = data + (driver.findElement(By.xpath("//*[@id=\"table_cases\"]/div/div[2]/table/tbody/tr" + "[" + i + "]/*[" + j + "]"))
+							.getText() + "||")
+
+					//*[@id="table_cases"]/div[2]/div[2]/div/div[2]/table/tbody
+					//*[@id="MUIDataTableBodyRow-58"]
+					//*[@id="MUIDataTableBodyRow-16"]/td[1]
+				}
+				webData.add(data)
+			}
+
+
+			System.out.println("Size of Web Data list in current page is : " + webData.size())
+			for(int index = 0; index < webData.size(); index++) {
+				System.out.println("Web Data: from current page is" + webData.get(index))
+			}
+			nextButton.click()
+			Thread.sleep(3000)
+			System.out.println("navigated to next page")
+
+
+			//			if ((nextButton.isEnabled()){
+			//				nextButton.click();
+			//			    Thread.sleep(3000)
+			//			    System.out.println("navigated to next page")
+			//				boolean buttonState= true
+			//			   }else{
+			//			   buttonState =false
+			//			   }
+		}
+		//
+		//}while((nextButton.isEnabled());
+
+		System.out.println(webData);
+		GlobalVariable.G_CaseData=webData
+		return webData;
+
+	}
 }
+
