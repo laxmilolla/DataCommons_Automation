@@ -26,5 +26,5 @@ import org.openqa.selenium.chrome.ChromeDriver as ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions as ChromeOptions
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 
-CustomKeywords.'ctdc.utilities.ReadExcel.Test'()
+CustomKeywords.'ctdc.utilities.ReadExcel_old.Test'()
 

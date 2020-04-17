@@ -99,4 +99,9 @@
       <initValue>''</initValue>
       <name>G_locatorvalue</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>[]</initValue>
+      <name>G_CaseData</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
